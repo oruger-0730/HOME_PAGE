@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>絵を描くシステム</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000;"></canvas>
+    <script>
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function drawShape(shape, x, y, size) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            switch (shape) {
+                case 'circle':
+                    ctx.arc(x, y, size, 0, 2 * Math.PI);
+                    break;
+                case 'square':
+                    ctx.rect(x - size / 2, y - size / 2, size, size);
+                    break;
+                // 他の形状もここに追加可能
+            }
+            ctx.stroke();
+        }
+
+        // 例として円を描画
+        drawShape('circle', 250, 250, 100);
+    </script>
+</body>
+</html>
