@@ -5,37 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>カードゲーム</title>
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* 横画面専用のスタイル */
-    @media screen and (orientation: portrait) {
-      body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        background-color: #000;
-      }
-      #rotate-warning {
-        display: block;
-        color: white;
-        font-size: 24px;
-        text-align: center;
-      }
-      #game-content {
-        display: none;
-      }
-    }
-
-    @media screen and (orientation: landscape) {
-      #rotate-warning {
-        display: none;
-      }
-      #game-content {
-        display: block;
-      }
-    }
-  </style>
 </head>
 <body>
   <!-- 縦画面の場合に表示される警告 -->
@@ -50,16 +19,6 @@
     </div>
   </div>
 
-  <script>
-    // ログインボタンを押すと login.html に移動
-    document.getElementById('login-button').addEventListener('click', () => {
-      window.location.href = 'login.html';
-    });
-
-    // 新規登録ボタンを押すと newaccount.html に移動
-    document.getElementById('register-button').addEventListener('click', () => {
-      window.location.href = 'newaccount.html';
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
