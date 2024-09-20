@@ -3,28 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RODING_BOT</title>
+  <title>カードゲーム</title>
   <link rel="stylesheet" href="styles.css">
+  <style>
+    /* 横画面専用のスタイル */
+    @media screen and (orientation: portrait) {
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #000;
+      }
+      #rotate-warning {
+        display: block;
+        color: white;
+        font-size: 24px;
+        text-align: center;
+      }
+      #game-content {
+        display: none;
+      }
+    }
+
+    @media screen and (orientation: landscape) {
+      #rotate-warning {
+        display: none;
+      }
+      #game-content {
+        display: block;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- ヘッダー -->
-  <header>
-    <nav>
-      <ul>
-        <li><a href="#home">ホーム</a></li>
-        <li><a href="#about">概要</a></li>
-        <li><a href="#commands">コマンド</a></li>
-        <li><a href="#contact">連絡先</a></li>
-      </ul>
-    </nav>
-  </header>
+  <!-- 縦画面の場合に表示される警告 -->
+  <div id="rotate-warning">横画面でプレイしてください</div>
 
-  <!-- コンテンツセクション -->
-  <section id="home" class="fade-in">ホームページのメインコンテンツ</section>
-  <section id="about" class="fade-in">ボットの概要</section>
-  <section id="commands" class="fade-in">コマンドリスト</section>
-  <section id="contact" class="fade-in">お問い合わせ</section>
+  <!-- ゲームコンテンツ -->
+  <div id="game-content">
+    <h1>カードゲームへようこそ</h1>
+    <div id="login-area">
+      <button id="login-button">ログイン</button>
+      <button id="register-button">新規登録</button>
+    </div>
+  </div>
 
-  <script src="script.js"></script>
+  <script>
+    // ログインボタンを押すと login.html に移動
+    document.getElementById('login-button').addEventListener('click', () => {
+      window.location.href = 'login.html';
+    });
+
+    // 新規登録ボタンを押すと newaccount.html に移動
+    document.getElementById('register-button').addEventListener('click', () => {
+      window.location.href = 'newaccount.html';
+    });
+  </script>
 </body>
 </html>
