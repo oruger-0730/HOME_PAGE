@@ -1,14 +1,17 @@
-// ログインボタンを押すと login.html に移動
-document.getElementById('login-button').addEventListener('click', () => {
-    window.location.href = 'login.html';
+// ページロード時に画面の向きを確認する
+window.addEventListener("orientationchange", function() {
+    if (window.orientation === 0 || window.orientation === 180) {
+      alert("横向きにしてください！");
+    }
   });
   
-  // 新規登録ボタンを押すと newaccount.html に移動
-  document.getElementById('register-button').addEventListener('click', () => {
-    window.location.href = 'newaccount.html';
-  });
+  // ログインページへの遷移
+  function goToLogin() {
+    window.location.href = "login.html";
+  }
   
-  // JavaScriptでスクロール無効化
-  document.body.addEventListener('touchmove', function(e) {
-    e.preventDefault();
-  }, { passive: false });
+  // 新規登録ページへの遷移
+  function goToNewAccount() {
+    window.location.href = "newaccount.html";
+  }
+  
