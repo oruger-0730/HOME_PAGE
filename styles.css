@@ -1,34 +1,36 @@
-/* 全体のレイアウト設定 */
+/* 縦向きの場合の警告メッセージ */
 @media screen and (orientation:portrait) {
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+    }
+    #rotate-warning {
+      display: block;
+      color: white;
+      font-size: 24px;
+      text-align: center;
+    }
+    #game-content {
+      display: none;
+    }
+  }
+  
+  /* 横向きの場合のゲームコンテンツ表示 */
+  @media screen and (orientation:landscape) {
+    #rotate-warning {
+      display: none;
+    }
+    #game-content {
+      display: block;
+    }
+  }
+  
+  /* デフォルトのボディ設定 */
   body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #000;
-  }
-  #rotate-warning {
-    display: block;
-    color: white;
-    font-size: 24px;
-    text-align: center;
-  }
-  #game-content {
-    display: none;
-  }
-}
-
-@media screen and (orientation:landscape) {
-  #rotate-warning {
-    display: none;
-  }
-  #game-content {
-    display: block;
-  }
-}
-
-body {
     margin: 0;
     padding: 0;
     display: flex;
@@ -74,3 +76,4 @@ body {
   .btn:hover {
     background-color: #f0f0f0;
   }
+  
