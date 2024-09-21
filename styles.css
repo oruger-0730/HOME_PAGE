@@ -1,4 +1,33 @@
 /* 全体のレイアウト設定 */
+@media screen and (orientation:portrait) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000;
+  }
+  #rotate-warning {
+    display: block;
+    color: white;
+    font-size: 24px;
+    text-align: none;
+  }
+  #game-content {
+    display: none;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  #rotate-warning {
+    display: none;
+  }
+  #game-content {
+    display: block;
+  }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -8,6 +37,7 @@ body {
     height: 100vh;
     background-color: #fff;
     font-family: 'Hannotate SC', 'Arial', sans-serif;
+    overflow: hidden;
   }
   
   /* メインコンテナ */
