@@ -1,34 +1,46 @@
-/* 横画面専用のスタイル */
-@media screen and (orientation: portrait) {
-    body {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      background-color: #000;
-    }
-    #rotate-warning {
-      display: block;
-      color: white;
-      font-size: 24px;
-      text-align: center;
-    }
-    #game-content {
-      display: none;
-    }
+/* 全体のレイアウト設定 */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #fff;
+    font-family: 'Hannotate SC', 'Arial', sans-serif;
   }
   
-  @media screen and (orientation: landscape) {
-    #rotate-warning {
-      display: none;
-    }
-    #game-content {
-      display: block;
-    }
+  /* メインコンテナ */
+  #main-container {
+    text-align: center;
   }
   
-  /* スクロールを無効化 */
-  body {
-    overflow: hidden;
+  /* タイトル */
+  .title {
+    font-size: 48px;
+    font-weight: bold;
+    color: black;
+    font-family: 'Hannotate SC', 'Arial', sans-serif; /* 手書き風フォント */
+    margin-bottom: 50px;
+  }
+  
+  /* ボタンのスタイル */
+  .btn {
+    display: block;
+    width: 200px;
+    height: 50px;
+    margin: 10px auto;
+    font-size: 24px;
+    color: black;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: 'Hannotate SC', 'Arial', sans-serif; /* 手書き風 */
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* ボタンのホバー時 */
+  .btn:hover {
+    background-color: #f0f0f0;
   }
