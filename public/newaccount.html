@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新規アカウント作成</title>
+</head>
+<body>
+    <h1>新規アカウント作成</h1>
+    <form id="newAccountForm">
+        <label for="nickname">ニックネーム:</label>
+        <input type="text" id="nickname" name="nickname" required><br><br>
+
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <label for="dob">生年月日:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+
+        <button type="submit">アカウント作成</button>
+    </form>
+
+    <script>
+        document.getElementById('newAccountForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const nickname = document.getElementById('nickname').value;
+            const password = document.getElementById('password').value;
+            const dob = document.getElementById('dob').value;
+
+            const accountData = {
+                nickname: nickname,
+                password: password,
+                dob: dob
+            };
+
+            // account.json に保存するためのリクエスト
+            const response = await fetch('/create-account', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(accountData)
+            });
+
+            if (response.ok) {
+                // アカウント作成成功時、game.html に遷移
+                window.location.href = 'game.html';
+            } else {
+                alert('アカウント作成に失敗しました。');
+            }
+        });
+    </script>
+</body>
+</html>
