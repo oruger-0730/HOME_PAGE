@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ログイン</title>
+    <style>
+        .error {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>ログイン</h1>
+
+    <div id="errorMsg" class="error"></div>
+
+    <form id="loginForm">
+        <label for="nickname">ユーザーネーム:</label>
+        <input type="text" id="nickname" name="nickname" required><br><br>
+
+        <label for="password">パスワード:</label>
+        <input type="password" id="password" name="password" required><br><br>
+
+        <button type="submit">ログイン</button>
+    </form>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const nickname = document.getElementById('nickname').value;
+            const password = document.getElementById('password').value;
+            const errorMsg = document.getElementById('errorMsg');
+            errorMsg.textContent = ''; // エラーメッセージをクリア
+
+            const loginData = {
+                nickname: nickname,
+                password: password
+            };
+
+            const response = await fetch('/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(loginData)
+            });
+
+            const result = await response.json();
+            if (response.ok) {
+                // ログイン成功時にユーザーネームを localStorage に保存
+                localStorage.setItem('loggedInUser', nickname);
+                window.location.href = 'game.html';
+            } else {
+                errorMsg.textContent = result.message || 'ログインに失敗しました。';
+            }
+        });
+    </script>
+</body>
+</html>
