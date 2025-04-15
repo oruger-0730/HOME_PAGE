@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>CrystalBot コマンド一覧</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #1e1e2f;
+      color: #f4f4f4;
+      margin: 0;
+      padding: 2rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .grid {
+      display: grid;
+      gap: 1rem;
+    }
+    @media (min-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+    @media (max-width: 767px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .command {
+      background: #2a2a3d;
+      border-radius: 10px;
+      padding: 1rem;
+      cursor: pointer;
+      transition: background 0.2s ease;
+    }
+    .command:hover {
+      background: #383850;
+    }
+    .details {
+      display: none;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    .command.active .details {
+      display: block;
+    }
+    .command-title {
+      font-weight: bold;
+      font-size: 1.1rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>📜 CrystalBot コマンド一覧</h1>
+  <div class="grid">
+    <div class="command">
+      <div class="command-title">/about</div>
+      <div class="details">ボットの情報を表示します。</div>
+    </div>
+    <div class="command">
+      <div class="command-title">/admin</div>
+      <div class="details">管理者専用のコマンドです。</div>
+    </div>
+    <div class="command">
+      <div class="command-title">/auth</div>
+      <div class="details">認証ボタンを作成します。</div>
+    </div>
+    <div class="command">
+      <div class="command-title">/ban</div>
+      <div class="details">指定したユーザーをBANします。</div>
+    </div>
+  
+  <script>
+    document.querySelectorAll('.command').forEach(cmd => {
+      cmd.addEventListener('click', () => {
+        cmd.classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
